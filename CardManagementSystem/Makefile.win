@@ -1,0 +1,43 @@
+# Project: pro3
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = src/realize/founctions.o src/realize/sys.o src/client/client.o src/realize/binding.o src/realize/campus.o src/realize/deposit.o
+LINKOBJ  = src/realize/founctions.o src/realize/sys.o src/client/client.o src/realize/binding.o src/realize/campus.o src/realize/deposit.o
+LIBS     = -L"D:/SoftwareEngineering/dev c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
+INCS     = -I"D:/SoftwareEngineering/dev c++/Dev-Cpp/MinGW64/include" -I"D:/SoftwareEngineering/dev c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/SoftwareEngineering/dev c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/SoftwareEngineering/dev c++/Dev-Cpp/MinGW64/include" -I"D:/SoftwareEngineering/dev c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/SoftwareEngineering/dev c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/SoftwareEngineering/dev c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = pro3.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+src/realize/founctions.o: src/realize/founctions.cpp
+	$(CPP) -c src/realize/founctions.cpp -o src/realize/founctions.o $(CXXFLAGS)
+
+src/realize/sys.o: src/realize/sys.cpp
+	$(CPP) -c src/realize/sys.cpp -o src/realize/sys.o $(CXXFLAGS)
+
+src/client/client.o: src/client/client.cpp
+	$(CPP) -c src/client/client.cpp -o src/client/client.o $(CXXFLAGS)
+
+src/realize/binding.o: src/realize/binding.cpp
+	$(CPP) -c src/realize/binding.cpp -o src/realize/binding.o $(CXXFLAGS)
+
+src/realize/campus.o: src/realize/campus.cpp
+	$(CPP) -c src/realize/campus.cpp -o src/realize/campus.o $(CXXFLAGS)
+
+src/realize/deposit.o: src/realize/deposit.cpp
+	$(CPP) -c src/realize/deposit.cpp -o src/realize/deposit.o $(CXXFLAGS)
